@@ -6,6 +6,9 @@ main();
 const app = express()
 const port = 3000
 
+// Init Middleware
+app.use(express.json({ extended: false }));
+
 // Available Routes
 app.use('/api/auth', require('./routes/auth'));
 
