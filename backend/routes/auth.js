@@ -8,13 +8,13 @@ var jwt = require('jsonwebtoken');
 
 const JWT_SECRET = 'thisisasecret';
 
-// create a user using : POST "/api/auth/". Doesn't need to be Authenticated
+// create a user using : POST "/api/auth/createuser".No login required
 // @route   GET api/auth
 router.post('/createuser', [
     body('name', 'Enter a valid name').isLength({ min: 3 }),
-    body('email', 'Enter a valid email').isEmail(),  
+    body('email', 'Enter a valid email').isEmail(),
     body('password', 'Enter a valid password').isLength({ min: 5 })
-    ], async (req, res) => {
+], async (req, res) => {
 
     // if there are errors then return bad request and the errors
     const result = validationResult(req);
@@ -54,9 +54,49 @@ router.post('/createuser', [
                 console.log(err);
                 res.json({ "Error": "Some error occured" })
             });
-    } 
+    }
     // catch any error
     catch (error) {
+        console.log(error.message);
+        res.status(500).send("Internal Server Error");
+    }
+})
+
+
+// create a user using : POST "/api/auth/login". No login required
+router.post('/login', [
+    body('email', 'Enter a valid email').isEmail(),
+    body('password', 'Password cannot be blank').exists(),
+], async (req, res) => {
+
+    // if there are errors then return bad request and the errors
+    const result = validationResult(req);
+    if (!result.isEmpty()) {
+        return res.status(400).json({ errors: result.array() });
+    }
+
+    const { email, password } = req.body;
+    try {
+        let user = await User.findOne({ email });
+        if (!user) {
+            return res.status(400).json({ "Error": "Please try to login with correct credentials" });
+        }
+
+        const passwordCompare = await bcrypt.compare(password, user.password);
+        if (!passwordCompare) {
+            return res.status(400).json({ "Error": "Please try to login with correct credentials" });
+        }
+
+        const data = {
+            user: {
+                id: user.id
+            }
+        }
+        const authtoken = jwt.sign(data, JWT_SECRET) // create a token
+        console.log(authtoken);
+        res.json({ authtoken });
+
+    } catch (error) {
         console.log(error.message);
         res.status(500).send("Internal Server Error");
     }
