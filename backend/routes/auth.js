@@ -8,7 +8,7 @@ var jwt = require('jsonwebtoken');
 
 const JWT_SECRET = 'thisisasecret';
 
-// create a user using : POST "/api/auth/createuser".No login required
+// Route 1 : create a user using : POST "/api/auth/createuser".No login required
 // @route   GET api/auth
 router.post('/createuser', [
     body('name', 'Enter a valid name').isLength({ min: 3 }),
@@ -63,7 +63,7 @@ router.post('/createuser', [
 })
 
 
-// create a user using : POST "/api/auth/login". No login required
+// Route 2 : Authenticate a user using : POST "/api/auth/login". No login required
 router.post('/login', [
     body('email', 'Enter a valid email').isEmail(),
     body('password', 'Password cannot be blank').exists(),
