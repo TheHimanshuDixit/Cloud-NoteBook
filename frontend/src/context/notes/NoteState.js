@@ -36,6 +36,51 @@ const NoteState = (props) => {
             "tag": "personal",
             "date": "2021-10-09T17:00:19.000Z",
             "__v": 0
+        },
+        {
+            "_id": "6161b8b3c8b7a3b3e4c1b0a2",
+            "user": "615f9b3c8b7a3b3e4c1b0a1",
+            "title": "My title",
+            "description": "My description",
+            "tag": "personal",
+            "date": "2021-10-09T17:00:19.000Z",
+            "__v": 0 
+        },
+        {
+            "_id": "6161b8b3c8b7a3b3e4c1b0a2",
+            "user": "615f9b3c8b7a3b3e4c1b0a1",
+            "title": "My title",
+            "description": "My description",
+            "tag": "personal",
+            "date": "2021-10-09T17:00:19.000Z",
+            "__v": 0
+        },
+        {
+            "_id": "6161b8b3c8b7a3b3e4c1b0a2",
+            "user": "615f9b3c8b7a3b3e4c1b0a1",
+            "title": "My title",
+            "description": "My description",
+            "tag": "personal",
+            "date": "2021-10-09T17:00:19.000Z",
+            "__v": 0
+        },
+        {
+            "_id": "6161b8b3c8b7a3b3e4c1b0a2",
+            "user": "615f9b3c8b7a3b3e4c1b0a1",
+            "title": "My title",
+            "description": "My description",
+            "tag": "personal",
+            "date": "2021-10-09T17:00:19.000Z",
+            "__v": 0
+        },
+        {
+            "_id": "6161b8b3c8b7a3b3e4c1b0a2",
+            "user": "615f9b3c8b7a3b3e4c1b0a1",
+            "title": "My title",
+            "description": "My description",
+            "tag": "personal",
+            "date": "2021-10-09T17:00:19.000Z",
+            "__v": 0
         }
     ]
 
