@@ -21,7 +21,7 @@ const Notes = () => {
 
     const handleClick = (e) => {
         console.log("Updating the Note ...")
-        editNote( note.id, note.etitle, note.edescription, note.etag );
+        editNote(note.id, note.etitle, note.edescription, note.etag);
         refClose.current.click();
     }
 
@@ -59,19 +59,22 @@ const Notes = () => {
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="etag" className="form-label">Tag</label>
-                                    <input type="current-password" className="form-control" id="etag" name="etag" value={note.etag} onChange={onChange} />
+                                    <input type="current-password" className="form-control" id="etag" name="etag" value={note.etag} onChange={onChange}/>
                                 </div>
                             </form>
                         </div>
                         <div className="modal-footer">
                             <button ref={refClose} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" className="btn btn-primary" onClick={handleClick}>Update Note</button>
+                            <button disabled={note.etitle < 5 || note.edescription < 5} type="button" className="btn btn-primary" onClick={handleClick}>Update Note</button>
                         </div>
                     </div>
                 </div>
             </div>
             <div className="row my-3">
                 <h1>Your Notes</h1>
+                <div className="container mx-2">
+                    {notes.length === 0 && "No Notes to display"}
+                </div>
                 {notes.map((note) => {
                     return <Noteitem key={note._id} updateNote={updateNote} note={note} />;
                 })}
