@@ -18,76 +18,40 @@ const NoteState = (props) => {
     //     }, 1000);
     // }
 
+    const host = "http://localhost:4000"
     const notesInitial = [
-        {
-            "_id": "6161b8b3c8b7a3b3e4c1b0a1",
-            "user": "615f9b3c8b7a3b3e4c1b0a1",
-            "title": "My title",
-            "description": "My description",
-            "tag": "personal",
-            "date": "2021-10-09T17:00:19.000Z",
-            "__v": 0
-        },
-        {
-            "_id": "6161b8b3c8b7a3b3e4c1b0a2",
-            "user": "615f9b3c8b7a3b3e4c1b0a1",
-            "title": "My title",
-            "description": "My description",
-            "tag": "personal",
-            "date": "2021-10-09T17:00:19.000Z",
-            "__v": 0
-        },
-        {
-            "_id": "6161b8b3c8b7a3b3e4c1b0a3",
-            "user": "615f9b3c8b7a3b3e4c1b0a1",
-            "title": "My title",
-            "description": "My description",
-            "tag": "personal",
-            "date": "2021-10-09T17:00:19.000Z",
-            "__v": 0
-        },
-        {
-            "_id": "6161b8b3c8b7a3b3e4c1b0a4",
-            "user": "615f9b3c8b7a3b3e4c1b0a1",
-            "title": "My title",
-            "description": "My description",
-            "tag": "personal",
-            "date": "2021-10-09T17:00:19.000Z",
-            "__v": 0
-        },
-        {
-            "_id": "6161b8b3c8b7a3b3e4c1b0a5",
-            "user": "615f9b3c8b7a3b3e4c1b0a1",
-            "title": "My title",
-            "description": "My description",
-            "tag": "personal",
-            "date": "2021-10-09T17:00:19.000Z",
-            "__v": 0
-        },
-        {
-            "_id": "6161b8b3c8b7a3b3e4c1b0a6",
-            "user": "615f9b3c8b7a3b3e4c1b0a1",
-            "title": "My title",
-            "description": "My description",
-            "tag": "personal",
-            "date": "2021-10-09T17:00:19.000Z",
-            "__v": 0
-        },
-        {
-            "_id": "6161b8b3c8b7a3b3e4c1b0a7",
-            "user": "615f9b3c8b7a3b3e4c1b0a1",
-            "title": "My title",
-            "description": "My description",
-            "tag": "personal",
-            "date": "2021-10-09T17:00:19.000Z",
-            "__v": 0
-        }
+
     ]
 
     const [notes, setNotes] = useState(notesInitial);
 
+    // get all note
+    const getNotes = async () => {
+        const response = await fetch(`${host}/api/notes/fetchallnotes`, {
+            method: 'GET', // *GET, POST, PUT, DELETE, etc.
+            headers: {
+                "Content-Type": "application/json",
+                "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ4MzU2ZWEzOTA0ZTJlYzI0MGQzMWY1In0sImlhdCI6MTY4NjMzMTExMX0.jE5LZJY2xhZ9mcIaQVNNLPMsFgXEKAzkK2psNyrtbtU",
+            }
+        });
+        const json = await response.json();
+        console.log("Fetching all note");
+        console.log(json);
+        setNotes(json);
+    }
+
     // Add a note
-    const addNote = (title, description, tag) => {
+    const addNote = async (title, description, tag) => {
+
+        const response = await fetch(`${host}/api/notes/addnote/`, {
+            method: "POST", // *GET, POST, PUT, DELETE, etc.
+            headers: {
+                "Content-Type": "application/json",
+                "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ4MzU2ZWEzOTA0ZTJlYzI0MGQzMWY1In0sImlhdCI6MTY4NjMzMTExMX0.jE5LZJY2xhZ9mcIaQVNNLPMsFgXEKAzkK2psNyrtbtU",
+            },
+            body: JSON.stringify({ title, description, tag }), // body data type must match "Content-Type" header
+        });
+
         console.log("Adding a new note");
         const note = {
             "_id": "6161b8b3c8b7a3b3e4c1b0a8",
@@ -109,13 +73,31 @@ const NoteState = (props) => {
     }
 
     // Edit a note
-    const editNote = (title, description, tag) => {
-    }
+    const editNote = async (id, title, description, tag) => {
 
+        const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
+            method: "POST", // *GET, POST, PUT, DELETE, etc.
+            headers: {
+                "Content-Type": "application/json",
+                "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ4MzU2ZWEzOTA0ZTJlYzI0MGQzMWY1In0sImlhdCI6MTY4NjMzMTExMX0.jE5LZJY2xhZ9mcIaQVNNLPMsFgXEKAzkK2psNyrtbtU",
+            },
+            body: JSON.stringify({ title, description, tag }), // body data type must match "Content-Type" header
+        });
+        const json = JSON.stringify();
+
+        for (let index = 0; index < notes.length; index++) {
+            const element = notes[index];
+            if (element._id === id) {
+                element.title = title;
+                element.description = description;
+                element.tag = tag;
+            }
+        }
+    }
 
     return (
         // <NoteContext.Provider value={{state, update}}>
-        <NoteContext.Provider value={{ notes, addNote, deleteNote, editNote }}>
+        <NoteContext.Provider value={{ notes, addNote, deleteNote, editNote, getNotes }}>
             {props.children}
         </NoteContext.Provider>
     )
