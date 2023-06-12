@@ -73,7 +73,7 @@ const NoteState = (props) => {
                 "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ4MzU2ZWEzOTA0ZTJlYzI0MGQzMWY1In0sImlhdCI6MTY4NjMzMTExMX0.jE5LZJY2xhZ9mcIaQVNNLPMsFgXEKAzkK2psNyrtbtU",
             },
         });
-        const json = response.json();
+        const json = await response.json();
         console.log("Delete" + id)
         console.log(json)
         const newNotes = notes.filter((note) => { return note._id !== id })
@@ -91,7 +91,7 @@ const NoteState = (props) => {
             },
             body: JSON.stringify({ title, description, tag }), // body data type must match "Content-Type" header
         });
-        const json = response.json();
+        const json = await response.json();
         console.log(json);
 
         let newNotes = JSON.parse(JSON.stringify(notes))

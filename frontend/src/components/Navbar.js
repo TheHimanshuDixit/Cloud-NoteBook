@@ -40,6 +40,8 @@ const Navbar = () => {
           <form className="d-flex">
             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
             <button className="btn btn-outline-success" type="submit">Search</button>
+            <div className='mx-2'><Link className="btn btn-primary" to="/login" role="button">Login</Link></div>
+            <div className='mx-2'><Link className="btn btn-primary" to="/signup" role="button">Signup</Link></div>
           </form>
         </div>
       </div>
