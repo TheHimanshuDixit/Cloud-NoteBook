@@ -7,7 +7,13 @@ const Notes = (props) => {
     const context = useContext(noteContext);
     const { notes, getNotes, editNote } = context;
     useEffect(() => {
-        getNotes();
+        if (localStorage.getItem('token')) {
+            getNotes();
+        }
+        else {
+            // props.showAlert("You are not logged in", "danger")
+            window.location.href = "/login";
+        }
         // eslint-disable-next-line
     }, [])
     const ref = useRef(null);
@@ -33,7 +39,7 @@ const Notes = (props) => {
 
     return (
         <>
-            <AddNote showAlert={props.showAlert}/>
+            <AddNote showAlert={props.showAlert} />
 
             {/* <!-- Button trigger modal --> */}
             <button ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -60,7 +66,7 @@ const Notes = (props) => {
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="etag" className="form-label">Tag</label>
-                                    <input type="current-password" className="form-control" id="etag" name="etag" value={note.etag} onChange={onChange}/>
+                                    <input type="current-password" className="form-control" id="etag" name="etag" value={note.etag} onChange={onChange} />
                                 </div>
                             </form>
                         </div>

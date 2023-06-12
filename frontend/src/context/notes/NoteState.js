@@ -31,7 +31,7 @@ const NoteState = (props) => {
             method: 'GET', // *GET, POST, PUT, DELETE, etc.
             headers: {
                 "Content-Type": "application/json",
-                "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ4MzU2ZWEzOTA0ZTJlYzI0MGQzMWY1In0sImlhdCI6MTY4NjMzMTExMX0.jE5LZJY2xhZ9mcIaQVNNLPMsFgXEKAzkK2psNyrtbtU",
+                "auth-token": localStorage.getItem('token'),
             }
         });
         const json = await response.json();
@@ -47,7 +47,7 @@ const NoteState = (props) => {
             method: "POST", // *GET, POST, PUT, DELETE, etc.
             headers: {
                 "Content-Type": "application/json",
-                "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ4MzU2ZWEzOTA0ZTJlYzI0MGQzMWY1In0sImlhdCI6MTY4NjMzMTExMX0.jE5LZJY2xhZ9mcIaQVNNLPMsFgXEKAzkK2psNyrtbtU",
+                "auth-token": localStorage.getItem('token'),
             },
             body: JSON.stringify({ title, description, tag }), // body data type must match "Content-Type" header
         });
@@ -70,7 +70,7 @@ const NoteState = (props) => {
             method: "DELETE", // *GET, POST, PUT, DELETE, etc.
             headers: {
                 "Content-Type": "application/json",
-                "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ4MzU2ZWEzOTA0ZTJlYzI0MGQzMWY1In0sImlhdCI6MTY4NjMzMTExMX0.jE5LZJY2xhZ9mcIaQVNNLPMsFgXEKAzkK2psNyrtbtU",
+                "auth-token": localStorage.getItem('token'),
             },
         });
         const json = await response.json();
@@ -87,7 +87,7 @@ const NoteState = (props) => {
             method: "PUT", // *GET, POST, PUT, DELETE, etc.
             headers: {
                 "Content-Type": "application/json",
-                "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ4MzU2ZWEzOTA0ZTJlYzI0MGQzMWY1In0sImlhdCI6MTY4NjMzMTExMX0.jE5LZJY2xhZ9mcIaQVNNLPMsFgXEKAzkK2psNyrtbtU",
+                "auth-token": localStorage.getItem('token'),
             },
             body: JSON.stringify({ title, description, tag }), // body data type must match "Content-Type" header
         });
