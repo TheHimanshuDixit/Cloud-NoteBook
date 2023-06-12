@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Signup = () => {
+const Signup = (props) => {
 
     const [credential, setCredential] = useState({ name: "", email: "", password: "", cpassword: "" })
 
@@ -25,11 +25,11 @@ const Signup = () => {
         if (json.success) {
             // Save the auth token and redirect
             localStorage.setItem('token', json.authToken)
-            // props.showAlert("Logged in successfully", "success")
+            props.showAlert("Acount created Successfully", "success")
         }
         else {
-            // props.showAlert("Invalid Credentials", "danger")
-            alert("Invalid Credentials")
+            props.showAlert("Invalid Credentials", "danger")
+            // alert("Invalid Credentials")
         }
 
     }
