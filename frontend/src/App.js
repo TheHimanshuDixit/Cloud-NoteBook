@@ -1,4 +1,3 @@
-import './App.css';
 import {
   BrowserRouter,
   Route,
@@ -12,6 +11,8 @@ import Alert from './components/Alert';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import { useState } from 'react';
+import Notes from './components/Notes';
+import Footer from './components/Footer';
 
 function App() {
   const [alert, setAlert] = useState(null)
@@ -33,14 +34,16 @@ function App() {
         <BrowserRouter>
           <Navbar />
           <Alert alert={alert} />
-          <div className="container">
+          <div>
             <Routes>
-              <Route exact path="/" element={<Home showAlert={showAlert} />} />
+              <Route exact path="/" element={<Home />} />
               <Route exact path="/about" element={<About />} />
+              <Route exact path="/notes" element={<Notes showAlert={showAlert}/>} />
               <Route exact path="/login" element={<Login showAlert={showAlert} />} />
               <Route exact path="/signup" element={<Signup showAlert={showAlert} />} />
             </Routes>
           </div>
+          < Footer />
         </BrowserRouter>
       </NoteState>
     </>
