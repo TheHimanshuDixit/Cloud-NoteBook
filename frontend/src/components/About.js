@@ -16,7 +16,7 @@ const About = () => {
         progress={progress}
         waitingTime={800}
       />
-      <div className="container my-20 mx-auto md:px-6">
+      <div className="container mb-10 md:my-20 mx-auto md:px-6">
         <section className="mb-32">
           <div className="container mx-auto text-center lg:text-left xl:px-32">
             <div className="grid items-center lg:grid-cols-2">

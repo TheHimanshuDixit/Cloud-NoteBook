@@ -74,7 +74,7 @@ const Notes = (props) => {
                 theme="light"
             />
             <ToastContainer />
-            <AddNote />
+            <AddNote/>
             <div
                 data-te-modal-init
                 className="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
@@ -90,7 +90,6 @@ const Notes = (props) => {
                         className="pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600">
                         <div
                             className="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
-
                             <h5
                                 className="text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200"
                                 id="exampleModalCenteredScrollableLabel">
@@ -172,7 +171,7 @@ const Notes = (props) => {
             </div>
 
             <div className="container m-3 mx-auto">
-                <h1 className='p-5 text-center'>Your Notes</h1>
+                <h1 className='p-5 text-center font-semibold underline text-lg'>Your Notes</h1>
                 <div className="container mx-auto text-center">
                     {notes.length === 0 && "No Notes to display"}
                 </div>

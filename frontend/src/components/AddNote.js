@@ -51,11 +51,10 @@ const AddNote = (props) => {
                 pauseOnHover
                 theme="light"
             />
-            {/* Same as */}
             <ToastContainer />
-            <div className="m-auto block max-w-sm rounded-lg bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
-                <h2>Add Note</h2>
-                <form>
+            <div className="m-auto mt-10 block max-w-sm md:max-w-2xl rounded-lg bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+                <h2 className='pb-5 text-center font-bold text-2xl'>Add Note</h2>
+                <form className='md:px-10 md:pb-4'>
                     <div className="relative mb-6" data-te-input-wrapper-init>
                         <input
                             type="text"
