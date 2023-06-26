@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#btn-back-to-top {
+    position: fixed;
+    display: none;
+}
+
+.home {
+    background-position: 50%;
+    background-image: url('https://tecdn.b-cdn.net/img/new/slides/146.webp');
+    height: 350px;
+}
+
+.home2 {
+    background-color: rgba(0, 0, 0, 0.75)
+}

@@ -1,19 +1,38 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import noteContext from '../context/notes/noteContext'
 import { useContext } from 'react';
+import {
+    Modal,
+    initTE,
+} from "tw-elements";
 
 const Noteitem = (props) => {
+    
+    useEffect(() => {
+        initTE({ Modal });
+    }, []);
+
     const { note, updateNote } = props;
     const context = useContext(noteContext);
     const { deleteNote } = context;
     return (
-        <div className='col-md-3'>
-            <div className="card">
-                <div className="card-body">
-                    <h5 className="card-title">{note.title}</h5>
-                    <p className="card-text">{note.description}</p>
-                    <i className="fa-solid fa-trash mx-2" onClick={() => { deleteNote(note._id); props.showAlert("Deleted successfully", "success") }}></i>
-                    <i className="fa-solid fa-pen-to-square mx-2" onClick={() => { updateNote(note) }}></i>
+        <div>
+            <div className="block rounded-lg bg-white text-center shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
+                <i className="fa-solid fa-trash mx-2" onClick={() => {
+                    deleteNote(note._id); props.showAlert("Deleted successfully",
+                        "success")
+                }}></i>
+                <i data-te-toggle="modal" data-te-target="#exampleModalCenteredScrollable" className="fa-solid fa-pen-to-square mx-2" onClick={() => { updateNote(note) }}></i>
+                <div className="p-6">
+                    <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800">
+                        {note.title}
+                    </h5>
+                    <p className="mb-4 text-base text-neutral-600">
+                        {note.description}
+                    </p>
+                </div>
+                <div className="border-t-2 border-neutral-100 px-6 py-3">
+                    2 days ago
                 </div>
             </div>
         </div>

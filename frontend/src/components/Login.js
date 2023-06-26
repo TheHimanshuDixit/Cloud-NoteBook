@@ -34,7 +34,7 @@ const Login = (props) => {
     }
 
     return (
-        <section className="text-gray-600 body-font">
+        <section className="text-gray-600 body-font container m-auto">
             <div className="px-10 md:px-20 py-8 flex flex-wrap items-center">
                 <div className="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
                     <h1 className="title-font font-medium text-3xl text-gray-900">Login in to continue to cNotebook...</h1>
