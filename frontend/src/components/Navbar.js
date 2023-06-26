@@ -1,14 +1,27 @@
-import React, { useEffect } from 'react'
-import {
-  Link,
-  useLocation
-} from "react-router-dom";
+import React from 'react'
+import { Link } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Navbar = () => {
+  
 
   const handlelogout = () => {
     localStorage.removeItem('token');
-    window.location.reload();
+    toast.success('Logout successfully', {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+    setTimeout(() => {
+      window.location.href = "/";
+    }
+      , 2000);
   }
 
 
@@ -38,6 +51,19 @@ const Navbar = () => {
 
   return (
     <>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+      <ToastContainer />
       <header className="text-gray-600 body-font">
         <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
           <Link to={'/'} className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
@@ -49,7 +75,7 @@ const Navbar = () => {
           <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
             <Link className="mr-5 hover:text-gray-900" to="/">Home</Link>
             <Link className="mr-5 hover:text-gray-900" to="/about">About</Link>
-            <Link className="mr-5 hover:text-gray-900" to="/notes">Add Notes</Link>
+            <Link className="mr-5 hover:text-gray-900" to="/notes">My Notes</Link>
             <Link className="mr-5 hover:text-gray-900" to="/contact">Contact Us</Link>
           </nav>
           <div className='flex'>
@@ -59,11 +85,10 @@ const Navbar = () => {
                 <div className='mx-2'><Link className="" to="/login" role="button">Login</Link></div>
               </form> :
               <div className='mx-2'><Link className="" to="#" role="button" onClick={handlelogout}>Logout</Link></div>}
-            <a className="hidden-arrow flex items-center whitespace-nowrap transition duration-150 ease-in-out motion-reduce:transition-none">
-              <img src="https://tecdn.b-cdn.net/img/new/avatars/2.jpg" height={25} width={25} className="rounded-full"
+            <Link to={'/notes'} className="hidden-arrow flex items-center whitespace-nowrap transition duration-150 ease-in-out motion-reduce:transition-none">
+              <img src="https://tecdn.b-cdn.net/img/new/avatars/2.jpg" alt='' height={25} width={25} className="rounded-full"
                 loading="lazy" />
-            </a>
-
+            </Link>
           </div>
         </div>
       </header>

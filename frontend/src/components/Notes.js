@@ -7,10 +7,14 @@ import {
     Ripple,
     initTE,
 } from "tw-elements";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import LoadingBar from 'react-top-loading-bar'
 
 const Notes = (props) => {
     const context = useContext(noteContext);
     const { notes, getNotes, editNote } = context;
+    const [progress, setProgress] = useState(0)
     useEffect(() => {
         initTE({ Modal, Ripple });
 
@@ -18,9 +22,9 @@ const Notes = (props) => {
             getNotes();
         }
         else {
-            // props.showAlert("You are not logged in", "danger")
             window.location.href = "/login";
         }
+        setProgress(100)
         // eslint-disable-next-line
     }, [])
     const refClose = useRef(null);
@@ -33,7 +37,16 @@ const Notes = (props) => {
     const handleClick = (e) => {
         editNote(note.id, note.etitle, note.edescription, note.etag);
         refClose.current.click();
-        props.showAlert("Updated successfully", "success");
+        toast.success('Note Updated successfully', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
     }
 
     const onChange = (e) => {
@@ -43,7 +56,25 @@ const Notes = (props) => {
 
     return (
         <>
-            <AddNote showAlert={props.showAlert} />
+            <LoadingBar
+                color='#f11946'
+                progress={progress}
+                waitingTime={800}
+            />
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
+            <ToastContainer />
+            <AddNote />
             <div
                 data-te-modal-init
                 className="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
@@ -90,7 +121,7 @@ const Notes = (props) => {
                                 <div className="relative mb-6" data-te-input-wrapper-init>
                                     <input
                                         type="text"
-                                        className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0" id="etitle" value={note.etitle} name="etitle" onChange={onChange}  />
+                                        className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0" id="etitle" value={note.etitle} name="etitle" onChange={onChange} />
                                     <label
                                         htmlFor="etitle"
                                         className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">Title
@@ -100,7 +131,7 @@ const Notes = (props) => {
                                 <div className="relative mb-6" data-te-input-wrapper-init>
                                     <input
                                         type="text"
-                                        className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0" id="edescription" value={note.edescription} name="edescription" onChange={onChange}/>
+                                        className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0" id="edescription" value={note.edescription} name="edescription" onChange={onChange} />
                                     <label
                                         htmlFor="edescription"
                                         className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">Description
@@ -139,7 +170,7 @@ const Notes = (props) => {
                     </div>
                 </div>
             </div>
-     
+
             <div className="container m-3 mx-auto">
                 <h1 className='p-5 text-center'>Your Notes</h1>
                 <div className="container mx-auto text-center">
@@ -147,7 +178,7 @@ const Notes = (props) => {
                 </div>
                 <div className='container flex justify-center flex-wrap'>
                     {notes.map((note) => {
-                        return <Noteitem key={note._id} updateNote={updateNote} showAlert={props.showAlert} note={note} />;
+                        return <Noteitem key={note._id} updateNote={updateNote} note={note} />;
                     })}
                 </div>
             </div>

@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import noteContext from '../context/notes/noteContext'
 import { useContext } from 'react';
 import { Input, Ripple, initTE } from "tw-elements";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddNote = (props) => {
 
@@ -19,7 +20,16 @@ const AddNote = (props) => {
         e.preventDefault();
         addNote(note.title, note.description, note.tag);
         setNotes({ title: "", description: "", tag: "" })
-        props.showAlert("Added successfully", "success");
+        toast.success('Note Added successfully', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
     }
 
     const onChange = (e) => {
@@ -29,6 +39,20 @@ const AddNote = (props) => {
 
     return (
         <>
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
+            {/* Same as */}
+            <ToastContainer />
             <div className="m-auto block max-w-sm rounded-lg bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
                 <h2>Add Note</h2>
                 <form>

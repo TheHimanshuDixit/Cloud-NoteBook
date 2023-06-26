@@ -3,20 +3,6 @@ import NoteContext from './noteContext'
 import { useState } from 'react'
 
 const NoteState = (props) => {
-    // const st = {
-    //     "name": "Harry",
-    //     "class": "5th"
-    // }
-    // const [state, setstate] = useState(st);
-
-    // const update = () => {
-    //     setTimeout(() => {
-    //         setstate({
-    //             "name": "larry",
-    //             "class": "10th"
-    //         })
-    //     }, 1000);
-    // }
 
     const host = "http://localhost:4000"
     const notesInitial = [

@@ -1,14 +1,22 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { BiSolidBookAdd } from 'react-icons/bi';
 import { Collapse, Ripple, initTE } from "tw-elements";
+import LoadingBar from 'react-top-loading-bar'
 
-const Home = (props) => {
+const Home = () => {
+  const [progress, setProgress] = useState(0)
   useEffect(() => {
     initTE({ Collapse, Ripple });
+    setProgress(100)
   }, []);
   return (
     <>
+      <LoadingBar
+        color='#f11946'
+        progress={progress}
+        waitingTime={800}
+      />
       <div className="container m-auto relative overflow-hidden bg-cover bg-no-repeat home">
         <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-fixed home2" >
           <div className="flex h-full items-center justify-center">
