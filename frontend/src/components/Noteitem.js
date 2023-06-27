@@ -32,7 +32,7 @@ const Noteitem = (props) => {
                     </p>
                 </div>
                 <div className="border-t-2 border-neutral-100 px-6 py-3">
-                    2 days ago
+                    {note.udate !== note.date ? <p className="text-sm text-neutral-500">Last updated on {new Date(note.udate).toLocaleString()}</p> : <p className="text-sm text-neutral-500">Created on {new Date(note.date).toLocaleString()}</p>}
                 </div>
             </div>
         </div>

@@ -3,6 +3,7 @@ import noteContext from '../context/notes/noteContext'
 import Noteitem from './Noteitem';
 import AddNote from './AddNote';
 import {
+    Input,
     Modal,
     Ripple,
     initTE,
@@ -14,7 +15,7 @@ const Notes = (props) => {
     const { notes, getNotes, editNote } = context;
     const [progress, setProgress] = useState(0)
     useEffect(() => {
-        initTE({ Modal, Ripple });
+        initTE({ Input, Modal, Ripple });
 
         if (localStorage.getItem('token')) {
             getNotes();
@@ -33,7 +34,7 @@ const Notes = (props) => {
     }
 
     const handleClick = (e) => {
-        editNote(note.id, note.etitle, note.edescription, note.etag);
+        editNote(note.id, note.etitle, note.edescription, note.etag, new Date());
         refClose.current.click();
         props.callSuccess('Note Updated successfully')
     }
@@ -50,6 +51,7 @@ const Notes = (props) => {
                 progress={progress}
                 waitingTime={800}
             />
+            {/* <AddNote callSuccess={props.callSuccess} /> */}
             <div
                 data-te-modal-init
                 className="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"

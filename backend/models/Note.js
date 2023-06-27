@@ -18,9 +18,13 @@ const NotesSchema = new Schema({
         type: String,
         default: "General"
     },
+    udate: {
+        type: Date,
+        default: new Date()
+    },
     date: {
         type: Date,
-        default: Date.now
+        default: new Date()
     }
 });
 

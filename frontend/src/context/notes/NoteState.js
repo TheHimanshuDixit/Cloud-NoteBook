@@ -67,7 +67,7 @@ const NoteState = (props) => {
     }
 
     // Edit a note
-    const editNote = async (id, title, description, tag) => {
+    const editNote = async (id, title, description, tag, udate) => {
 
         const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
             method: "PUT", // *GET, POST, PUT, DELETE, etc.
@@ -75,7 +75,7 @@ const NoteState = (props) => {
                 "Content-Type": "application/json",
                 "auth-token": localStorage.getItem('token'),
             },
-            body: JSON.stringify({ title, description, tag }), // body data type must match "Content-Type" header
+            body: JSON.stringify({ title, description, tag, udate }), // body data type must match "Content-Type" header
         });
         const json = await response.json();
         console.log(json);
@@ -87,6 +87,7 @@ const NoteState = (props) => {
                 newNotes[index].title = title;
                 newNotes[index].description = description;
                 newNotes[index].tag = tag;
+                newNotes[index].udate = udate;
                 break;
             }
         }
