@@ -7,8 +7,6 @@ import {
     Ripple,
     initTE,
 } from "tw-elements";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import LoadingBar from 'react-top-loading-bar'
 
 const Notes = (props) => {
@@ -37,16 +35,7 @@ const Notes = (props) => {
     const handleClick = (e) => {
         editNote(note.id, note.etitle, note.edescription, note.etag);
         refClose.current.click();
-        toast.success('Note Updated successfully', {
-            position: "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        });
+        props.callSuccess('Note Updated successfully')
     }
 
     const onChange = (e) => {
@@ -61,20 +50,7 @@ const Notes = (props) => {
                 progress={progress}
                 waitingTime={800}
             />
-            <ToastContainer
-                position="top-right"
-                autoClose={2000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-            />
-            <ToastContainer />
-            <AddNote/>
+            <AddNote callSuccess={props.callSuccess}/>
             <div
                 data-te-modal-init
                 className="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
@@ -177,7 +153,7 @@ const Notes = (props) => {
                 </div>
                 <div className='container flex justify-center flex-wrap'>
                     {notes.map((note) => {
-                        return <Noteitem key={note._id} updateNote={updateNote} note={note} />;
+                        return <Noteitem key={note._id} updateNote={updateNote} callSuccess={props.callSuccess} note={note} />;
                     })}
                 </div>
             </div>

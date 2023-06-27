@@ -5,8 +5,6 @@ import {
     Modal,
     initTE,
 } from "tw-elements";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const Noteitem = (props) => {
 
@@ -19,32 +17,10 @@ const Noteitem = (props) => {
     const { deleteNote } = context;
     return (
         <div>
-            <ToastContainer
-                position="top-right"
-                autoClose={2000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-            />
-            <ToastContainer />
             <div className="py-5 block rounded-lg bg-white text-center shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] mx-5">
                 <i className="fa-solid fa-trash mx-2" onClick={() => {
                     deleteNote(note._id);
-                    toast.success('Note Deleted successfully', {
-                        position: "top-right",
-                        autoClose: 2000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "light",
-                    });
+                    props.callSuccess('Note Deleted Successfully');
                 }}></i>
                 <i data-te-toggle="modal" data-te-target="#exampleModalCenteredScrollable" className="fa-solid fa-pen-to-square mx-2" onClick={() => { updateNote(note) }}></i>
                 <div className="p-6">

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
 import LoadingBar from 'react-top-loading-bar'
 
 const Signup = (props) => {
@@ -30,31 +29,13 @@ const Signup = (props) => {
             // Save the auth token and redirect
             localStorage.setItem('token', json.authtoken)
             setProgress(100)
-            toast.success('Account created successfully', {
-                position: "top-right",
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-            });
+            props.callSuccess('Account Created Successfully')
             setTimeout(() => {
                 window.location.href = "/";
             }, 2000);
         }
         else {
-            toast.error('Error', {
-                position: "top-right",
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-            });
+            props.callError('Enter valid data');
         }
 
     }
@@ -66,20 +47,6 @@ const Signup = (props) => {
                 progress={progress}
                 waitingTime={800}
             />
-            <ToastContainer
-                position="top-right"
-                autoClose={2000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-            />
-            <ToastContainer />
-
             <section className="text-gray-600 body-font container m-auto">
                 <div className="px-10 md:px-20 py-8 flex flex-wrap items-center">
                     <div className="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
