@@ -32,7 +32,7 @@ const Signup = (props) => {
             setProgress(100)
             toast.success('Account created successfully', {
                 position: "top-right",
-                autoClose: 5000,
+                autoClose: 2000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
@@ -47,7 +47,7 @@ const Signup = (props) => {
         else {
             toast.error('Error', {
                 position: "top-right",
-                autoClose: 5000,
+                autoClose: 2000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
@@ -68,7 +68,7 @@ const Signup = (props) => {
             />
             <ToastContainer
                 position="top-right"
-                autoClose={5000}
+                autoClose={2000}
                 hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick

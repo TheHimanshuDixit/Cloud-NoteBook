@@ -21,7 +21,7 @@ const Noteitem = (props) => {
         <div>
             <ToastContainer
                 position="top-right"
-                autoClose={5000}
+                autoClose={2000}
                 hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick
@@ -37,7 +37,7 @@ const Noteitem = (props) => {
                     deleteNote(note._id);
                     toast.success('Note Deleted successfully', {
                         position: "top-right",
-                        autoClose: 5000,
+                        autoClose: 2000,
                         hideProgressBar: false,
                         closeOnClick: true,
                         pauseOnHover: true,
