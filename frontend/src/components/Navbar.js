@@ -74,7 +74,7 @@ const Navbar = (props) => {
                   {account && <div onMouseOver={onover} onMouseLeave={onleave} className="absolute right-0 top-11 w-56 mt-2 origin-top-right rounded-md shadow-lg z-50 font-semibold">
                     <div className="py-1 bg-white rounded-md shadow-xs">
                       <Link to="/profile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Your Profile</Link>
-                      <Link to="/notes" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Your Notes</Link>
+                      <Link to="/mynotes" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Your Notes</Link>
                       <Link to="/settings" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Settings</Link>
                       <Link to="#" onClick={handlelogout} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Sign out</Link>
                     </div>

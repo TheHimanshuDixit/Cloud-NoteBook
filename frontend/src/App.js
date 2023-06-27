@@ -10,6 +10,7 @@ import NoteState from './context/notes/NoteState';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Notes from './components/Notes';
+import Mynotes from './components/Mynotes';
 import Footer from './components/Footer';
 import Contactus from "./components/Contactus";
 import Notfound from "./components/Notfound";
@@ -51,6 +52,7 @@ function App() {
               <Route exact path="/" element={<Home />} />
               <Route exact path="/about" element={<About callSuccess={callSuccess} callError={callError} />} />
               <Route exact path="/notes" element={<Notes callSuccess={callSuccess} callError={callError} />} />
+              <Route exact path="/mynotes" element={<Mynotes callSuccess={callSuccess} callError={callError} />} />
               <Route exact path="/login" element={<Login callSuccess={callSuccess} callError={callError} />} />
               <Route exact path="/signup" element={<Signup callSuccess={callSuccess} callError={callError} />} />
               <Route exact path="/contact" element={<Contactus callSuccess={callSuccess} callError={callError} />} />
