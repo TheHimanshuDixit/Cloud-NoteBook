@@ -5,9 +5,10 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
 const fetchuser = require('../middleware/fetchuser');
+require('dotenv').config();
 
 
-const JWT_SECRET = 'thisisasecret';
+const JWT_SECRET = process.env.JWTTOKEN;
 
 // Route 1 : create a user using : POST "/api/auth/createuser".No login required
 // @route   GET api/auth
@@ -21,7 +22,7 @@ router.post('/createuser', [
     // if there are errors then return bad request and the errors
     const result = validationResult(req);
     if (!result.isEmpty()) {
-        return res.status(400).json({ sucess, errors: result.array() });
+        return res.status(400).json({ success, errors: result.array() });
     }
 
     try {

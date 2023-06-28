@@ -151,11 +151,11 @@ const Notes = (props) => {
                 <div className="container mx-auto text-center">
                     {notes.length === 0 && "No Notes to display"}
                 </div>
-                <div className='container flex justify-center flex-wrap'>
+                {notes.length !== 0 && <div className='container flex justify-center flex-wrap'>
                     {notes.map((note) => {
                         return <Noteitem key={note._id} updateNote={updateNote} callSuccess={props.callSuccess} note={note} />;
                     })}
-                </div>
+                </div>}
             </div>
         </>
     )
