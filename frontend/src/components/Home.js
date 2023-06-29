@@ -17,7 +17,7 @@ const Home = () => {
         progress={progress}
         waitingTime={800}
       />
-      <div className="container m-auto relative overflow-hidden bg-cover bg-no-repeat home">
+      <div className="container m-auto relative overflow-hidden bg-cover bg-no-repeat home mt-2">
         <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-fixed home2" >
           <div className="flex h-full items-center justify-center">
             <div className="px-6 text-center text-white md:px-12">
@@ -34,43 +34,70 @@ const Home = () => {
           </div>
         </div>
       </div >
-      <div className="flex justify-center p-8 ">
-        <div className="flex flex-col justify-center">
-          <div className="flex flex-col lg:flex-row max-w-5xl justify-center items-center p-2 space-y-3 w-[100%]">
-            <div className="flex flex-col  items-center lg:text-left text-center justify-between  space-y-6 px-8">
-              <div className="flex flex-col items-start space-y-3">
-                <div className="text-3xl md:text-5xl font-bold px-8">
-                  Design is a journey of </div>
-                <div className="text-3xl text-orange-500 md:text-5xl font-bold px-8">
-                  Discovery </div>
-                <div className="h-1 rounded-2xl w-20 bg-orange-500 ml-10"></div>
-              </div>
+      <section className="text-gray-600 body-font">
+        <div className="container mx-auto flex px-5 pt-24 md:flex-row flex-col items-center">
+          <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+            <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Lorem ipsum dolor sit amet consectetur.</h1>
+            <p className="mb-8 leading-relaxed">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi dolore adipisci voluptatum? Vitae, nesciunt laudantium minus in repudiandae dolor aspernatur..</p>
+            <div className="flex w-full md:justify-start justify-center items-end">
               <button className="">
-                <Link to={'/notes'}><BiSolidBookAdd className="bg-orange-500 rounded-full text-5xl p-1 text-white border-2 border-orange-500 hover:bg-white hover:text-orange-500" /></Link>
+                <Link to={'/notes'}><BiSolidBookAdd className="bg-red-500 rounded-full text-5xl p-1 text-white border-2 border-red-500 hover:bg-white hover:text-red-500" /></Link>
               </button>
             </div>
-            <div className="flex space-x-2 md:space-x-6 md:m-4 w-1/2">
-              <div className=" w-96 h-60 lg:h-96  overflow-hidden ">
-                <img src="https://source.unsplash.com/300x400/?design" className="h-full w-full" alt="" />
-              </div>
-            </div>
+            <p className="text-sm mt-2 text-gray-500 mb-8 w-full">Click here and your notes..</p>
+          </div>
+          <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+            <img className="object-cover object-center rounded" alt="hero" src="./image/benefit-one.png" />
           </div>
         </div>
-      </div>
-      <div className="container my-24 mx-auto md:px-6 xl:px-24">
+      </section>
+
+      <section className="text-gray-600 body-font">
+        <div className="container mx-auto flex px-5 pt-24 md:flex-row flex-col items-center">
+          <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+            <img className="object-cover object-center rounded" alt="hero" src="./image/hero.png" />
+          </div>
+          <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+            <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Knausgaard typewriter readymade marfa</h1>
+            <p className="mb-8 leading-relaxed">Chillwave portland ugh, knausgaard fam polaroid iPhone. Man braid swag typewriter affogato, hella selvage wolf narwhal dreamcatcher.</p>
+            <div className="flex w-full md:justify-start justify-center items-end">
+              <button className="inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg">Button</button>
+            </div>
+            <p className="text-sm mt-2 text-gray-500 mb-8 w-full">Neutra shabby chic ramps, viral fixie.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="text-gray-600 body-font">
+        <div className="container mx-auto flex px-5 pt-24 md:flex-row flex-col items-center">
+          <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+            <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Knausgaard typewriter readymade marfa</h1>
+            <p className="mb-8 leading-relaxed">Chillwave portland ugh, knausgaard fam polaroid iPhone. Man braid swag typewriter affogato, hella selvage wolf narwhal dreamcatcher.</p>
+            <div className="flex w-full md:justify-start justify-center items-end">
+              <button className="inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg">Button</button>
+            </div>
+            <p className="text-sm mt-2 text-gray-500 mb-8 w-full">Neutra shabby chic ramps, viral fixie.</p>
+          </div>
+          <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+            <img className="object-cover object-center rounded" alt="hero" src="./image/benefit-two.png" />
+          </div>
+        </div>
+      </section>
+
+      <div className="container my-16 mx-auto md:px-6 xl:px-24">
         <section className="mb-32">
-          <h2 className="mb-6 pl-6 text-3xl font-bold">Frequently asked questions</h2>
+          <h2 className="mb-6 pl-6 text-3xl font-bold text-center underline">Frequently asked questions</h2>
 
           <div id="accordionFlushExample">
             <div className="rounded-none border border-t-0 border-l-0 border-r-0 border-neutral-200">
               <h2 className="mb-0" id="flush-headingOne">
                 <button
-                  className="group relative flex w-full items-center rounded-none border-0 py-4 px-5 text-left text-base font-bold transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none [&:not([data-te-collapse-collapsed])]:text-primary [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:text-primary-400"
+                  className="group relative flex w-full items-center rounded-none border-0 py-4 px-5 text-left text-base font-bold transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none [&:not([data-te-collapse-collapsed])]:text-[red] [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:text-primary-400"
                   type="button" data-te-collapse-init data-te-target="#flush-collapseOne" aria-expanded="false"
                   aria-controls="flush-collapseOne">
                   Anim pariatur cliche reprehenderit?
                   <span
-                    className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-[#8FAEE0] dark:group-[[data-te-collapse-collapsed]]:fill-[#eee]">
+                    className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[red] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-[#8FAEE0] dark:group-[[data-te-collapse-collapsed]]:fill-[#eee]">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
                       <path fillRule="evenodd"
                         d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
@@ -97,12 +124,12 @@ const Home = () => {
             <div className="rounded-none border border-l-0 border-r-0 border-t-0 border-neutral-200">
               <h2 className="mb-0" id="flush-headingTwo">
                 <button
-                  className="group relative flex w-full items-center rounded-none border-0 py-4 px-5 text-left text-base font-bold transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none [&:not([data-te-collapse-collapsed])]:text-primary [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:text-primary-400"
+                  className="group relative flex w-full items-center rounded-none border-0 py-4 px-5 text-left text-base font-bold transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none [&:not([data-te-collapse-collapsed])]:text-[red] [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:text-primary-400"
                   type="button" data-te-collapse-init data-te-collapse-collapsed data-te-target="#flush-collapseTwo"
                   aria-expanded="false" aria-controls="flush-collapseTwo">
                   Non cupidatat skateboard dolor brunch?
                   <span
-                    className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-[#8FAEE0] dark:group-[[data-te-collapse-collapsed]]:fill-[#eee]">
+                    className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[red] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-[#8FAEE0] dark:group-[[data-te-collapse-collapsed]]:fill-[#eee]">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
                       <path fillRule="evenodd"
                         d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
@@ -129,12 +156,12 @@ const Home = () => {
             <div className="rounded-none border border-l-0 border-r-0 border-b-0 border-t-0 border-neutral-200">
               <h2 className="mb-0" id="flush-headingThree">
                 <button
-                  className="group relative flex w-full items-center rounded-none border-0 py-4 px-5 text-left text-base font-bold transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none [&:not([data-te-collapse-collapsed])]:text-primary [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:text-primary-400"
+                  className="group relative flex w-full items-center rounded-none border-0 py-4 px-5 text-left text-base font-bold transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none [&:not([data-te-collapse-collapsed])]:text-[red] [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:text-primary-400"
                   type="button" data-te-collapse-init data-te-collapse-collapsed data-te-target="#flush-collapseThree"
                   aria-expanded="false" aria-controls="flush-collapseThree">
                   Praesentium voluptatibus temporibus consequatur non aspernatur?
                   <span
-                    className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-[#8FAEE0] dark:group-[[data-te-collapse-collapsed]]:fill-[#eee]">
+                    className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[red] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-[#8FAEE0] dark:group-[[data-te-collapse-collapsed]]:fill-[#eee]">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
                       <path fillRule="evenodd"
                         d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />

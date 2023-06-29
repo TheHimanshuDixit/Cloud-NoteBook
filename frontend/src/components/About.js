@@ -37,7 +37,7 @@ const About = () => {
                         <path strokeLinecap="round" strokeLinejoin="round"
                           d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
-                      Best team
+                      Best UI/UX
                     </p>
 
                     <p className="mx-auto mb-4 flex items-center md:mx-0 md:mb-2 lg:mb-0">
@@ -46,7 +46,7 @@ const About = () => {
                         <path strokeLinecap="round" strokeLinejoin="round"
                           d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
-                      Best quality
+                      User Friendly
                     </p>
 
                     <p className="mx-auto mb-2 flex items-center md:mx-0 lg:mb-0">
@@ -55,7 +55,7 @@ const About = () => {
                         <path strokeLinecap="round" strokeLinejoin="round"
                           d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
-                      Best experience
+                      Save your notes
                     </p>
                   </div>
 
@@ -78,7 +78,7 @@ const About = () => {
               </div>
 
               <div>
-                <img src="https://mdbcdn.b-cdn.net/img/new/ecommerce/vertical/117.jpg"
+                <img src="https://img.freepik.com/free-photo/black-notebook-with-pen_53876-105936.jpg?size=626&ext=jpg&uid=R70082888&ga=GA1.1.903730306.1655306128&semt=ais"
                   className="w-full rounded-lg shadow-lg dark:shadow-black/20" alt=" " />
               </div>
             </div>
