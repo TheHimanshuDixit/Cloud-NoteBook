@@ -43,8 +43,8 @@ router.post('/send', async (req, res) => {
             secure: true,
             service: 'gmail',
             auth: {
-                pass: process.env.USER,
-                user: process.env.PASS,
+                user: process.env.USER,
+                pass: process.env.PASS,
             }
         });
         var mailOption = {

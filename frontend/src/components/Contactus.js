@@ -60,13 +60,17 @@ const Contactus = (props) => {
             })
             const d1 = await data1.json();
             console.log(d1);
+            if (d1.error === "Not Send") {
+                props.callError("Something Went Wrong")
+            }
+            else {
+                props.callSuccess("We'll Contact You Soon")
+                setName('')
+                setEmail('')
+                setMessage('')
+                setCheck('false')
+            }
         }
-        setName('')
-        setEmail('')
-        setMessage('')
-        setCheck('false')
-        props.callSuccess("We'll Contact You Soon")
-
     }
 
     useEffect(() => {
