@@ -1,6 +1,6 @@
 # Cloud-NoteBook
 
-cNotebook - Your notes are in cloud and safe
+cNotebook - Your notes are in cloud and safe (A full Stack Project).
 
 
 # Tech used 
