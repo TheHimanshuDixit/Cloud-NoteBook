@@ -14,7 +14,7 @@ cNotebook - Your notes are in cloud and safe (A full Stack Project).
 
 # Screenshot
 
-![image](https://github.com/TheHimanshuDixit/Cloud-NoteBook/assets/107857348/52f7024b-b277-43a8-be1e-fdc200f9fa97)
+![Screenshot 2023-07-13 012522](https://github.com/TheHimanshuDixit/Cloud-NoteBook/assets/107857348/3a8bf91c-5ebe-4ecd-aaee-e6990a1f49fe)
 
 
 ## Run Locally
