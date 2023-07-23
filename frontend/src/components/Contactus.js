@@ -4,7 +4,7 @@ import LoadingBar from 'react-top-loading-bar'
 
 const Contactus = (props) => {
 
-    const host = "http://localhost:4000"
+    const host = "https://cloudnotebook-owql.onrender.com"
     const [progress, setProgress] = useState(0)
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')

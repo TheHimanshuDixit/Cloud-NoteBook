@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 const NoteState = (props) => {
 
-    const host = "http://localhost:4000"
+    const host = "https://cloudnotebook-owql.onrender.com"
     const notesInitial = [
 
     ]
