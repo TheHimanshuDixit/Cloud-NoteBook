@@ -27,7 +27,7 @@ const Login = (props) => {
             localStorage.setItem('token', json.authtoken)
             props.callSuccess('Logged in Successfully');
             setTimeout(() => {
-                window.location.href = "https://master--stalwart-donut-9b8523.netlify.app/notes";
+                window.location.href = "/notes";
             }, 2000);
         }
         else {
