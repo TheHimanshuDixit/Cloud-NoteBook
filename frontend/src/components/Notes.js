@@ -148,7 +148,7 @@ const Notes = (props) => {
 
             <div className="container m-3 mx-auto">
                 <h1 className='p-5 text-center font-semibold underline text-lg'>Your Notes</h1>
-                <div className="container mx-auto text-center">
+                <div className="container mx-auto text-center mb-20">
                     {notes.length === 0 && "No Notes to display"}
                 </div>
                 {notes.length !== 0 && <div className='container flex justify-center flex-wrap'>
