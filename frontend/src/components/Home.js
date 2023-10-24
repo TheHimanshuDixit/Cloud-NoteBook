@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
-import { BiSolidBookAdd } from 'react-icons/bi';
+import { BiSolidBookAdd, BiBookBookmark} from 'react-icons/bi';
+import {RiLoginBoxFill } from 'react-icons/ri';
 import { Collapse, Ripple, initTE } from "tw-elements";
 import LoadingBar from 'react-top-loading-bar'
 
@@ -28,12 +29,12 @@ const Home = () => {
                 className="inline-block rounded border-2 border-neutral-50 px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
                 data-te-ripple-init
                 data-te-ripple-color="light">
-                Get started
+                <Link to={'/signup'}>Get started</Link>
               </button>
             </div>
           </div>
         </div>
-      </div >
+      </div>
       <section className="text-gray-600 body-font">
         <div className="container mx-auto flex px-5 pt-24 md:flex-row flex-col items-center">
           <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
@@ -44,7 +45,7 @@ const Home = () => {
                 <Link to={'/notes'}><BiSolidBookAdd className="bg-red-500 rounded-full text-5xl p-1 text-white border-2 border-red-500 hover:bg-white hover:text-red-500" /></Link>
               </button>
             </div>
-            <p className="text-sm mt-2 text-gray-500 mb-8 w-full">Click here and your notes..</p>
+            <p className="text-sm mt-2 text-gray-500 mb-8 w-full">Click here add your notes..</p>
           </div>
           <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
             <img className="object-cover object-center rounded" alt="hero" src="./image/benefit-one.png" />
@@ -61,9 +62,12 @@ const Home = () => {
             <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Knausgaard typewriter readymade marfa</h1>
             <p className="mb-8 leading-relaxed">Chillwave portland ugh, knausgaard fam polaroid iPhone. Man braid swag typewriter affogato, hella selvage wolf narwhal dreamcatcher.</p>
             <div className="flex w-full md:justify-start justify-center items-end">
-              <button className="inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg">Button</button>
+              <button className="">
+                <Link to={'/notes'}><RiLoginBoxFill className="bg-red-500 rounded-full text-5xl p-1 text-white border-2 border-red-500 hover:bg-white hover:text-red-500" />
+                </Link>
+              </button>
             </div>
-            <p className="text-sm mt-2 text-gray-500 mb-8 w-full">Neutra shabby chic ramps, viral fixie.</p>
+            <p className="text-sm mt-2 text-gray-500 mb-8 w-full">sign to explore...</p>
           </div>
         </div>
       </section>
@@ -74,9 +78,12 @@ const Home = () => {
             <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Knausgaard typewriter readymade marfa</h1>
             <p className="mb-8 leading-relaxed">Chillwave portland ugh, knausgaard fam polaroid iPhone. Man braid swag typewriter affogato, hella selvage wolf narwhal dreamcatcher.</p>
             <div className="flex w-full md:justify-start justify-center items-end">
-              <button className="inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg">Button</button>
+              <button className="">
+                <Link to={'/notes'}><BiBookBookmark className="bg-red-500 rounded-full text-5xl p-1 text-white border-2 border-red-500 hover:bg-white hover:text-red-500" />
+                </Link>
+              </button>
             </div>
-            <p className="text-sm mt-2 text-gray-500 mb-8 w-full">Neutra shabby chic ramps, viral fixie.</p>
+            <p className="text-sm mt-2 text-gray-500 mb-8 w-full">What this website do...</p>
           </div>
           <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
             <img className="object-cover object-center rounded" alt="hero" src="./image/benefit-two.png" />
